@@ -68,7 +68,7 @@ public class Lexer {
             }
         }
         log.error("unreachable");
-        System.exit(0);
+        System.exit(-1);
         return "";
     }
 
@@ -76,7 +76,7 @@ public class Lexer {
         MatchedToken matchedToken = this.getNextToken();
         if (!Objects.equals(matchedToken.getTokenType(), tokenEnum)) {
             log.error("next token type error");
-            System.exit(0);
+            System.exit(-1);
         }
         return matchedToken;
     }
@@ -149,7 +149,7 @@ public class Lexer {
             return new MatchedToken(this.lineNum, this.keywords.getOrDefault(token, TokenEnum.TOKEN_NAME), token);
         }
         log.error(String.format("MatchToken(): unexpected symbol near '%d'.", (int) this.sourceCode.charAt(0)));
-        System.exit(0);
+        System.exit(-1);
         return null;
     }
 

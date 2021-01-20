@@ -36,7 +36,7 @@ public class Backend {
             resolvePrint(g, (Print) statement);
         } else {
             log.error("undefined statement type");
-            System.exit(0);
+            System.exit(-1);
         }
     }
 
@@ -44,7 +44,7 @@ public class Backend {
         String variableName = print.getVariable().getName();
         if (Objects.isNull(variableName) || Objects.equals("", variableName)) {
             log.error("resolve print error");
-            System.exit(0);
+            System.exit(-1);
         }
         String variableValue = g.getVariables().get(variableName);
         log.info(variableValue);
